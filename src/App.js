@@ -1,24 +1,24 @@
 
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Menu from './components/nav/Menu';
 import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Register from './pages/auth/Register';
+import Login from './pages/auth/Login';
 
-function App() {
+
+const App=()=> {
   return (
-    <div>
+    <BrowserRouter>
       <Menu/>
       <Toaster />
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
-
       </Routes>
-    </div>
+    </BrowserRouter>
   );
 }
 
