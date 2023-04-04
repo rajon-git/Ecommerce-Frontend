@@ -8,6 +8,10 @@ import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
 import PrivateRoute from './components/routes/PrivateRoute';
 import Dashboard from './pages/user/Dashboard';
+import AdminDashboard from './pages/admin/Dashboard';
+import AdminRoute from './components/routes/AdminRoute';
+import AdminCategory from './pages/admin/Category';
+import AdminProduct from './pages/admin/Product';
 
 
 const App=()=> {
@@ -22,6 +26,13 @@ const App=()=> {
         <Route path="/dashboard" element={<PrivateRoute/>}>
           <Route path="" element={<Dashboard/>}></Route>
         </Route>
+
+        <Route path="/dashboard" element={<AdminRoute />}>
+          <Route path="admin" element={<AdminDashboard/>} />
+          <Route path="admin/category" element={<AdminCategory/>}/>
+          <Route path="admin/product" element={<AdminProduct/>} />
+        </Route>
+
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Jumbotron from '../../components/cards/Jumbotron';
 import { useAuth } from '../../context/auth';
 
@@ -10,11 +11,13 @@ const Login = () => {
   const [password,setPassword]=useState("")
   //hook
   const [auth,setAuth]=useAuth();
+  const navigate=useNavigate();
+  const location=useLocation();
   
   const handleSubmit=async(e)=>{
       e.preventDefault();
       try{
-        const {data}=await axios.post('http://localhost:8000/api/v1/login',{
+        const {data}=await axios.post(`/login`,{
           email,
           password
         });
@@ -24,6 +27,10 @@ const Login = () => {
           localStorage.setItem("auth",JSON.stringify(data));
           setAuth({...auth,token:data.token,user:data.user});
           toast.success("Login successful");
+          navigate(
+            location.state ||
+            `/dashboard/${data?.user?.role === 1 ? "admin" : "user"}`
+          );
         }
       }catch(error){
         toast.error("Login failed,try again")
@@ -52,10 +59,10 @@ const Login = () => {
                     onChange={(e)=>setPassword(e.target.value)}/>
                     <button className='btn btn-primary' type="submit">Login</button>
                   </form>
-            </div> 
-            </div>
+                </div> 
+              </div>
             </div>       
-        </div>
+          </div>
     );
 };
 
