@@ -9,7 +9,6 @@ const Register = () => {
     const [name,setName]=useState("");
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
-    const [address,setAddress]=useState("");
 
     //hooks
     const navigate=useNavigate();
@@ -21,8 +20,7 @@ const Register = () => {
         const {data}=await axios.post(`/register`,{
           name,
           email,
-          password,
-          address
+          password
         
         });
         console.log(data);
@@ -70,13 +68,7 @@ const Register = () => {
                     value={password}
                     onChange={(e)=>setPassword(e.target.value)}
                     />
-                    <input
-                    type="address"
-                    className="form-control mb-4 p-2"
-                    placeholder='Enter your address'
-                    value={address}
-                    onChange={(e)=>setAddress(e.target.value)}
-                    />
+                   
                     <button className="btn btn-primary" type="submit">
                     Submit
                     </button>

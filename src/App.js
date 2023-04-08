@@ -12,7 +12,16 @@ import AdminDashboard from './pages/admin/Dashboard';
 import AdminRoute from './components/routes/AdminRoute';
 import AdminCategory from './pages/admin/Category';
 import AdminProduct from './pages/admin/Product';
+import UserProfile from './pages/user/Profile';
+import UserOrders from './pages/user/Order';
 
+const PageNotFound = () => {
+  return (
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      404 | Page not found
+    </div>
+  );
+};
 
 const App=()=> {
   return (
@@ -25,6 +34,8 @@ const App=()=> {
         <Route path="/register" element={<Register/>}></Route>
         <Route path="/dashboard" element={<PrivateRoute/>}>
           <Route path="" element={<Dashboard/>}></Route>
+          <Route path="user/profile" element={<UserProfile/>}></Route>
+          <Route path="user/orders" element={<UserOrders/>}></Route>
         </Route>
 
         <Route path="/dashboard" element={<AdminRoute />}>
@@ -32,7 +43,7 @@ const App=()=> {
           <Route path="admin/category" element={<AdminCategory/>}/>
           <Route path="admin/product" element={<AdminProduct/>} />
         </Route>
-
+        <Route path="*" element={<PageNotFound />} replace />
       </Routes>
     </BrowserRouter>
   );
