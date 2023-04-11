@@ -14,6 +14,8 @@ import AdminCategory from './pages/admin/Category';
 import AdminProduct from './pages/admin/Product';
 import UserProfile from './pages/user/Profile';
 import UserOrders from './pages/user/Order';
+import AdminProducts from './pages/admin/Products';
+import AdminProductUpdate from './pages/admin/ProductUpdate';
 
 const PageNotFound = () => {
   return (
@@ -42,6 +44,11 @@ const App=()=> {
           <Route path="admin" element={<AdminDashboard/>} />
           <Route path="admin/category" element={<AdminCategory/>}/>
           <Route path="admin/product" element={<AdminProduct/>} />
+          <Route path="admin/products" element={<AdminProducts/>} />
+          <Route
+            path="admin/product/update/:slug"
+            element={<AdminProductUpdate />}
+          />
         </Route>
         <Route path="*" element={<PageNotFound />} replace />
       </Routes>
