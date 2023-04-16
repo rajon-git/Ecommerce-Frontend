@@ -16,6 +16,7 @@ import UserProfile from './pages/user/Profile';
 import UserOrders from './pages/user/Order';
 import AdminProducts from './pages/admin/Products';
 import AdminProductUpdate from './pages/admin/ProductUpdate';
+import Shop from './pages/Shop';
 
 const PageNotFound = () => {
   return (
@@ -32,6 +33,7 @@ const App=()=> {
       <Toaster />
       <Routes>
         <Route path="/" element={<Home/>}></Route>
+        <Route path="/shop" element={<Shop/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
         <Route path="/dashboard" element={<PrivateRoute/>}>
