@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import useCategory from "../../hooks/useCategory";
 import { Badge } from "antd";
+import Search from "../forms/Search";
 
 
 const Menu = () => {
@@ -64,9 +65,8 @@ const Menu = () => {
           </li>
         </div>
 
-      
-   
-
+        <Search/>
+        
         {!auth?.user ? (
           <>
             <li className="nav-item">
