@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import Jumbotron from '../components/cards/Jumbotron';
-import axios from 'axios';
-import ProductCard from '../components/cards/ProductCard';
+import { useEffect, useState } from "react";
+import Jumbotron from "../components/cards/Jumbotron";
+import axios from "axios";
+import ProductCard from "../components/cards/ProductCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);

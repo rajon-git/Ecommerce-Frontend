@@ -9,6 +9,7 @@ const AdminRoute=()=>{
     const [auth,setAuth]=useAuth();
     //state
     const [ok,setOk]=useState(false);
+    
     useEffect(()=>{
         const adminCheck=async()=>{
             const {data}=await axios.get(`/admin-check`);
