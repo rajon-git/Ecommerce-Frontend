@@ -51,15 +51,7 @@ const Home = () => {
 
   const arr = [...products];
   const sortedBySold = arr?.sort((a, b) => (a.sold < b.sold ? 1 : -1));
-  /*
-  Here's a breakdown of what the code is doing:
-The code starts by defining a constant variable called "sortedBySold".
-"arr" is an array of objects that is being sorted. The "?" is called the "optional chaining operator" and is used to check if "arr" exists before attempting to access its "sort" method. If "arr" is undefined or null, the code will exit without attempting to sort.
-The "sort" method is used to sort the elements of the array in place. It takes a comparison function as an argument, which determines the order of the sorted elements.
-The comparison function takes two parameters, "a" and "b", which represent two elements being compared. The function returns a positive number if "a" should come after "b" in the sorted array, a negative number if "a" should come before "b", and 0 if they are equal.
-In this case, the comparison function is using a ternary operator to check if the "sold" property of "a" is less than the "sold" property of "b". If it is, the function returns 1, indicating that "a" should come after "b". Otherwise, the function returns -1, indicating that "a" should come before "b".
-The end result is that the "sortedBySold" variable contains a sorted version of the "arr" array, with the objects sorted in descending order based on their "sold" property.
-  */ 
+  
 
   return (
     <div>

@@ -15,11 +15,12 @@ import {
 } from "react-icons/fa";
 import ProductCard from "../components/cards/ProductCard";
 import toast from "react-hot-toast";
+import { useCart } from "../context/cart";
 // import { useCart } from "../context/cart";
 
 const ProductView=()=> {
   // context
-  // const [cart, setCart] = useCart();
+  const [cart, setCart] = useCart();
   // state
   const [product, setProduct] = useState({});
   const [related, setRelated] = useState([]);
@@ -120,8 +121,8 @@ const ProductView=()=> {
                 borderBottomLeftRadius: "5px",
               }}
               onClick={() => {
-                // setCart([...cart, product]);
-                // localStorage.setItem("cart", JSON.stringify([...cart, product]));
+                setCart([...cart, product]);
+                localStorage.setItem("cart", JSON.stringify([...cart, product]));
                 toast.success("Added to cart");
               }}
             >

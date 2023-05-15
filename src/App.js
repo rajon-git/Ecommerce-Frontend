@@ -19,6 +19,7 @@ import AdminProductUpdate from './pages/admin/ProductUpdate';
 import Shop from './pages/Shop';
 import Search from './pages/Search';
 import ProductView from './pages/ProductView';
+import Cart from './pages/cart';
 
 const PageNotFound = () => {
   return (
@@ -37,6 +38,7 @@ const App=()=> {
         <Route path="/" element={<Home/>}></Route>
         <Route path="/shop" element={<Shop/>}></Route>
         <Route path="/search" element={<Search/>}></Route>
+        <Route path="/cart" element={<Cart/>}></Route>
         <Route path="/product/:slug" element={<ProductView/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/register" element={<Register/>}></Route>
